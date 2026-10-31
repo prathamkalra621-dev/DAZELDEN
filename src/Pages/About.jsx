@@ -1,132 +1,124 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
-const VALUES = [
-  { title: 'Signal over noise', desc: 'We chase the metrics that move revenue, not the ones that just look good on a slide.' },
-  { title: 'Radical transparency', desc: 'Live dashboards, honest reporting, no vanity numbers dressed up as wins.' },
-  { title: 'Craft matters', desc: 'Strategy without great creative execution is just a spreadsheet. We obsess over both.' },
-  { title: 'Long-term thinking', desc: 'We build systems that keep compounding long after the campaign ends.' },
-];
-
-const TIMELINE = [
-  { year: '2016', text: 'DAZELDEN founded as a two-person SEO consultancy working out of a co-working space.' },
-  { year: '2018', text: 'Launched our paid media and social practice; crossed 40 active client accounts.' },
-  { year: '2021', text: 'Opened our creative studio, bringing branding and web design fully in-house.' },
-  { year: '2023', text: 'Built our in-house analytics platform, DazelSignal, for real-time client reporting.' },
-  { year: '2026', text: 'Now a 60-person full-service agency working with brands across 12 countries.' },
-];
-
-const TEAM = [
-  { name: 'Ariana Cole', role: 'Founder & CEO' },
-  { name: 'Devon Okafor', role: 'Head of Strategy' },
-  { name: 'Sana Rahman', role: 'Creative Director' },
-  { name: 'Leo Ferreira', role: 'Head of Performance' },
-];
-
-export default function About() {
+function About() {
   return (
-    <>
-      <section className="page-header">
+    <main>
+
+      <section className="page-hero">
         <div className="container">
-          <span className="eyebrow">About DAZELDEN</span>
-          <h1>We build marketing engines, not just campaigns.</h1>
+          <span className="eyebrow">ABOUT DAZELDEN</span>
+
+          <h1>
+            Strategy Meets
+            <span> Creativity.</span>
+          </h1>
+
           <p>
-            Founded in 2016, DAZELDEN has grown from a two-person SEO shop into a
-            full-service agency trusted by ambitious brands to own their growth —
-            end to end, channel to channel.
+            At Dazelden, we help businesses grow in the digital world with smart, creative, and results-driven marketing solutions. From digital strategy and SEO to social media and online branding, we focus on building strong digital presence, reaching the right audience, and turning ideas into measurable growth.
           </p>
         </div>
       </section>
 
       <section className="section">
-        <div className="container grid-2" style={{ alignItems: 'center' }}>
-          <div>
-            <span className="eyebrow">Our mission</span>
-            <h2>Turn attention into a durable growth advantage</h2>
-            <p>
-              Most brands don't have a marketing problem — they have a signal
-              problem. Too many channels, too much noise, not enough clarity on
-              what's actually working. We exist to cut through that: one strategy,
-              one team, every channel pulling in the same direction.
-            </p>
-            <p>
-              We're not a vendor you manage. We're an extension of your team that
-              shows up with a point of view, a plan, and the numbers to back it up.
-            </p>
-            <Link to="/contact" className="btn btn-primary">Work with us</Link>
-          </div>
-          <div className="hero-visual" style={{ aspectRatio: '4/4' }}>
-            <div className="hero-visual-glow" />
-            <div className="hero-visual-card">
-              <span className="eyebrow">Since 2016</span>
-              <h4>60 people. One growth signal.</h4>
-              <p>Strategy, media, content and design under a single roof.</p>
+        <div className="container about-grid">
+
+          <div className="about-image">
+            <div className="about-logo-card">
+              <img src="/dazelden-logo.png" alt="DAZELDEN" />
+              <h3>DAZELDEN</h3>
+              <p>Grow Your Business Online.</p>
             </div>
           </div>
+
+          <div className="about-content">
+            <span className="eyebrow">OUR STORY</span>
+
+            <h2>
+              Building Brands That
+              <span> Matter.</span>
+            </h2>
+
+            <p>
+              DAZELDEN was created with one simple belief:
+              marketing should create real business impact.
+            </p>
+
+            <p>
+              We combine creative thinking, digital strategy,
+              technology and data to help businesses communicate
+              better, reach the right people and grow consistently.
+            </p>
+
+            <p>
+              Whether you're launching a new business, building a
+              personal brand or scaling an established company,
+              we're here to turn your vision into a strong digital
+              presence.
+            </p>
+
+            <Link to="/contact" className="btn btn-primary">
+              Work With Us →
+            </Link>
+          </div>
+
         </div>
       </section>
 
-      <section className="section section-paper">
+      {/* VALUES */}
+      <section className="dark-section">
         <div className="container">
-          <div className="section-head">
-            <span className="eyebrow">What we stand for</span>
-            <h2>The principles behind every campaign</h2>
+
+          <div className="section-heading light-heading">
+            <div>
+              <span className="eyebrow">OUR VALUES</span>
+
+              <h2>
+                What Drives
+                <span> Us.</span>
+              </h2>
+            </div>
           </div>
+
           <div className="values-grid">
-            {VALUES.map((v) => (
-              <div className="card" key={v.title}>
-                <h3 style={{ fontSize: '19px' }}>{v.title}</h3>
-                <p style={{ fontSize: '14.5px' }}>{v.desc}</p>
-              </div>
-            ))}
+
+            <div className="value-card">
+              <span>01</span>
+              <h3>Creativity</h3>
+              <p>
+                We believe great ideas make brands memorable.
+              </p>
+            </div>
+
+            <div className="value-card">
+              <span>02</span>
+              <h3>Strategy</h3>
+              <p>
+                Every creative decision is backed by a clear strategy.
+              </p>
+            </div>
+
+            <div className="value-card">
+              <span>03</span>
+              <h3>Results</h3>
+              <p>
+                We focus on outcomes, not vanity metrics.
+              </p>
+            </div>
+
+            <div className="value-card">
+              <span>04</span>
+              <h3>Innovation</h3>
+              <p>
+                We constantly adapt to the changing digital world.
+              </p>
+            </div>
+
           </div>
         </div>
       </section>
 
-      <section className="section">
-        <div className="container">
-          <div className="section-head">
-            <span className="eyebrow">Our journey</span>
-            <h2>Ten years of compounding growth</h2>
-          </div>
-          <div className="timeline">
-            {TIMELINE.map((t) => (
-              <div className="timeline-row" key={t.year}>
-                <div className="timeline-year">{t.year}</div>
-                <p style={{ margin: 0 }}>{t.text}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="section section-paper">
-        <div className="container">
-          <div className="section-head">
-            <span className="eyebrow">Leadership</span>
-            <h2>The people steering the signal</h2>
-          </div>
-          <div className="team-grid">
-            {TEAM.map((m) => (
-              <div className="team-card" key={m.name}>
-                <div className="team-photo" />
-                <h4>{m.name}</h4>
-                <span>{m.role}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="container" style={{ paddingBottom: '96px' }}>
-        <div className="cta-banner">
-          <div>
-            <h2>Curious what your growth engine could look like?</h2>
-            <p>Let's talk about where you are and where you want to be.</p>
-          </div>
-          <Link to="/contact" className="btn btn-light">Get in touch</Link>
-        </div>
-      </section>
-    </>
+    </main>
   );
 }
+
+export default About;

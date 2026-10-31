@@ -1,159 +1,221 @@
-import React, { useState } from 'react';
+import { useState } from "react";
 
-const INITIAL_FORM = {
-  name: '',
-  email: '',
-  company: '',
-  service: 'SEO',
-  message: '',
-};
+function Contact() {
 
-export default function Contact() {
-  const [form, setForm] = useState(INITIAL_FORM);
-  const [submitted, setSubmitted] = useState(false);
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    service: "",
+    message: ""
+  });
 
   const handleChange = (e) => {
-    const { name, value } = e.target;
-    setForm((prev) => ({ ...prev, [name]: value }));
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Hook this up to your backend / email API of choice.
-    console.log('DAZELDEN contact form submission:', form);
-    setSubmitted(true);
+
+    alert(
+      "Thank you for contacting DAZELDEN! We will get back to you soon."
+    );
+
+    setFormData({
+      name: "",
+      email: "",
+      phone: "",
+      service: "",
+      message: ""
+    });
   };
 
   return (
-    <>
-      <section className="page-header">
+    <main>
+
+      <section className="page-hero">
         <div className="container">
-          <span className="eyebrow">Contact</span>
-          <h1>Let's map your next growth milestone.</h1>
-          <p>Tell us about your brand and goals — we typically reply within one business day.</p>
+
+          <span className="eyebrow">CONTACT US</span>
+
+          <h1>
+            Let's Grow Your
+            <span> Business.</span>
+          </h1>
+
+          <p>
+            Tell us about your project and let's discuss how DAZELDEN
+            can help your brand reach its next level.
+          </p>
+
         </div>
       </section>
 
-      <section className="section">
-        <div className="container contact-layout">
-          <div className="contact-info-card">
-            <h3>Get in touch</h3>
-            <p>Prefer to skip the form? Reach us directly through any of the channels below.</p>
+      <section className="section contact-section">
+        <div className="container contact-grid">
 
-            <div className="contact-detail">
-              <span className="k">Email</span>
-              <span className="v">hello@dazelden.com</span>
-            </div>
-            <div className="contact-detail">
-              <span className="k">Phone</span>
-              <span className="v">+1 (555) 204-8890</span>
-            </div>
-            <div className="contact-detail">
-              <span className="k">Studio</span>
-              <span className="v">221 Signal Ave, Suite 4B<br />Austin, TX 78701</span>
-            </div>
-            <div className="contact-detail">
-              <span className="k">Hours</span>
-              <span className="v">Mon–Fri, 9:00 AM – 6:00 PM CST</span>
+          {/* CONTACT INFORMATION */}
+          <div className="contact-info">
+
+            <span className="eyebrow">
+              GET IN TOUCH
+            </span>
+
+            <h2>
+              Have An Idea?
+              <span> Let's Talk.</span>
+            </h2>
+
+            <p>
+              Whether you need a complete digital marketing strategy,
+              social media management, SEO, branding or a new website,
+              we're ready to help.
+            </p>
+
+            <div className="contact-details">
+
+              <div className="contact-item">
+                <span>EMAIL</span>
+                <a href="mailto:dazeldenofficial.com">
+                  dazeldenofficial.com
+                </a>
+              </div>
+
+              <div className="contact-item">
+                <span>PHONE</span>
+                <a href="tel:+918529151147">
+                  +91 8529151147
+                </a>
+              </div>
+
+              <div className="contact-item">
+                <span>LOCATION</span>
+                <p>Udaipur,India</p>
+              </div>
+
             </div>
 
-            <div className="social-row">
-              <a href="#" aria-label="Instagram">IG</a>
-              <a href="#" aria-label="LinkedIn">IN</a>
-              <a href="#" aria-label="X / Twitter">X</a>
-              <a href="#" aria-label="YouTube">YT</a>
-            </div>
           </div>
 
-          <div>
-            {submitted ? (
-              <div className="form-success">
-                Thanks — your message has been sent. A DAZELDEN strategist will
-                reach out within one business day.
-              </div>
-            ) : (
-              <form onSubmit={handleSubmit}>
-                <div className="form-row">
-                  <div className="form-field">
-                    <label htmlFor="name">Full name</label>
-                    <input
-                      id="name"
-                      name="name"
-                      type="text"
-                      placeholder="Jordan Blake"
-                      value={form.name}
-                      onChange={handleChange}
-                      required
-                    />
-                  </div>
-                  <div className="form-field">
-                    <label htmlFor="email">Work email</label>
-                    <input
-                      id="email"
-                      name="email"
-                      type="email"
-                      placeholder="jordan@company.com"
-                      value={form.email}
-                      onChange={handleChange}
-                      required
-                    />
-                  </div>
-                </div>
+          {/* FORM */}
+          <div className="contact-form-wrapper">
 
-                <div className="form-row">
-                  <div className="form-field">
-                    <label htmlFor="company">Company</label>
-                    <input
-                      id="company"
-                      name="company"
-                      type="text"
-                      placeholder="Company name"
-                      value={form.company}
-                      onChange={handleChange}
-                    />
-                  </div>
-                  <div className="form-field">
-                    <label htmlFor="service">Service you're interested in</label>
-                    <select
-                      id="service"
-                      name="service"
-                      value={form.service}
-                      onChange={handleChange}
-                    >
-                      <option>SEO</option>
-                      <option>Paid Media</option>
-                      <option>Social Media Marketing</option>
-                      <option>Content Marketing</option>
-                      <option>Email Marketing</option>
-                      <option>Branding &amp; Design</option>
-                      <option>Web Development</option>
-                      <option>Full-service package</option>
-                    </select>
-                  </div>
-                </div>
+            <form
+              className="contact-form"
+              onSubmit={handleSubmit}
+            >
 
-                <div className="form-field">
-                  <label htmlFor="message">Tell us about your project</label>
-                  <textarea
-                    id="message"
-                    name="message"
-                    rows="5"
-                    placeholder="What are you trying to grow, and by when?"
-                    value={form.message}
+              <div className="form-row">
+
+                <div className="form-group">
+                  <label>Your Name</label>
+
+                  <input
+                    type="text"
+                    name="name"
+                    placeholder="Enter your name"
+                    value={formData.name}
                     onChange={handleChange}
                     required
                   />
                 </div>
 
-                <button type="submit" className="btn btn-accent">Send message</button>
-                <p className="form-note">
-                  By submitting, you agree to be contacted by DAZELDEN about your inquiry.
-                </p>
-              </form>
-            )}
+                <div className="form-group">
+                  <label>Email Address</label>
+
+                  <input
+                    type="email"
+                    name="email"
+                    placeholder="Enter your email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    required
+                  />
+                </div>
+
+              </div>
+
+              <div className="form-row">
+
+                <div className="form-group">
+                  <label>Phone Number</label>
+
+                  <input
+                    type="tel"
+                    name="phone"
+                    placeholder="Enter phone number"
+                    value={formData.phone}
+                    onChange={handleChange}
+                  />
+                </div>
+
+                <div className="form-group">
+                  <label>Service</label>
+
+                  <select
+                    name="service"
+                    value={formData.service}
+                    onChange={handleChange}
+                    required
+                  >
+                    <option value="">
+                      Select a service
+                    </option>
+                    <option value="digital-marketing">
+                      Digital Marketing
+                    </option>
+                    <option value="social-media">
+                      Social Media Marketing
+                    </option>
+                    <option value="seo">
+                      SEO
+                    </option>
+                    <option value="branding">
+                      Branding
+                    </option>
+                    <option value="website">
+                      Website Development
+                    </option>
+                    <option value="content">
+                      Content Marketing
+                    </option>
+                  </select>
+                </div>
+
+              </div>
+
+              <div className="form-group">
+                <label>Tell Us About Your Project</label>
+
+                <textarea
+                  name="message"
+                  rows="6"
+                  placeholder="Tell us about your business and project..."
+                  value={formData.message}
+                  onChange={handleChange}
+                  required
+                ></textarea>
+              </div>
+
+              <button
+                type="submit"
+                className="btn btn-primary form-button"
+              >
+                Send Message →
+              </button>
+
+            </form>
+
           </div>
+
         </div>
       </section>
-    </>
+
+    </main>
   );
 }
+
+export default Contact;
